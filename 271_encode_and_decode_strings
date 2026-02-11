@@ -1,0 +1,48 @@
+#include <string>
+
+class Solution {
+public:
+
+    string encode(vector<string>& strs) {
+        std::string encoded_string;
+
+        for (std::string& str : strs)
+        {
+            encoded_string += std::to_string(str.length());
+            encoded_string += "_";
+            encoded_string += str;
+        }
+
+        return encoded_string;
+    }
+
+    vector<string> decode(string s) {
+        int ptr = 0;
+        std::vector<std::string> decoded_string;
+
+        while (ptr < s.length())
+        {
+            std::string word_length_string;
+
+            while (s[ptr] != '_')
+            {
+                word_length_string += s[ptr];
+                ptr++;
+            }
+
+            ptr++;
+            int word_length = std::stoi(word_length_string);
+            int end = ptr + word_length;
+            std::string buffer;
+            while (ptr < end)
+            {
+                buffer += s[ptr];
+                ptr++;
+            }
+
+            decoded_string.push_back(buffer);
+        }
+
+        return decoded_string;
+    }
+};
