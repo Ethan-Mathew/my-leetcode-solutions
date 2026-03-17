@@ -1,1 +1,3 @@
-# my-leetcode-solutions
+# My LeetCode Solutions
+
+Just keeping a repo of every LeetCode question I complete. Hopefully, my solutions get better over time...
